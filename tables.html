@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{url_for('static',filename='img/vedas_logo.png')}}">
+  <link rel="icon" type="image/png" href="{{url_for('static',filename='img/vedas_logo.png')}}">
+  <title>
+   VEDAS_LOG_DATA
+  </title>
+  
+
+  
+  <link href="{{url_for('static',filename='css/table.css')}}" rel="stylesheet" />
+ 
+  <!-- Material Icons -->
+  
+  <link id="pagestyle" href="{{url_for('static',filename='css/material-dashboard.css')}}" rel="stylesheet" />
+
+  
+  
+</head>
+
+<body class="g-sidenav-show  bg-gray-200">
+  <aside
+    class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
+    id="sidenav-main">
+    <div class="sidenav-header">
+      <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+        aria-hidden="true" id="iconSidenav"></i>
+         <a class="navbar-brand m-0" href="/"
+        target="_blank">
+    <center>
+        <img src="{{url_for('static',filename='img/vedas_logo.png')}}" class="navbar-brand-img h-100" alt="main_logo">
+       </center>
+      </a>
+    </div>
+    <hr class="horizontal light mt-0 mb-2">
+    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link text-white " href="/">
+
+            <span class="nav-link-text ms-1">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white active bg-gradient-primary" href="/tables">
+
+            <span class="nav-link-text ms-1">Table</span>
+          </a>
+        </li>
+       
+   
+    
+    
+      
+      </ul>
+    </div>
+   
+  </aside>
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    <!-- Navbar -->
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+      data-scroll="true">
+      <div class="container-fluid py-1 px-3">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Tables</li>
+          </ol>
+          <h6 class="font-weight-bolder mb-0">LOG_DATA</h6>
+        </nav>
+
+
+   
+
+        <ul class="navbar-nav  justify-content-end">
+
+
+          <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+            <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+              <div class="sidenav-toggler-inner">
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+              </div>
+            </a>
+          </li>
+          <li class="nav-item px-3 d-flex align-items-center">
+            <a href="javascript:;" class="nav-link text-body p-0">
+              <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
+            </a>
+          </li>
+          <li class="nav-item dropdown pe-2 d-flex align-items-center">
+            <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <i class="fa fa-bell cursor-pointer"></i>
+            </a>
+            <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
+              <li class="mb-2">
+                <a class="dropdown-item border-radius-md" href="javascript:;">
+                  <div class="d-flex py-1">
+                    <div class="my-auto">
+                      <img src="{{url_for('static',filename='img/team-2.jpg')}}" class="avatar avatar-sm  me-3 ">
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                      <h6 class="text-sm font-weight-normal mb-1">
+                        <span class="font-weight-bold">New message</span> from Laur
+                      </h6>
+                      <p class="text-xs text-secondary mb-0">
+                        <i class="fa fa-clock me-1"></i>
+                        13 minutes ago
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="mb-2">
+                <a class="dropdown-item border-radius-md" href="javascript:;">
+                  <div class="d-flex py-1">
+                    <div class="my-auto">
+                      <img src="{{url_for('static',filename='img/logo-spotify.svg')}}"
+                        class="avatar avatar-sm bg-gradient-dark  me-3 ">
+                    </div>
+           
+                  </div>
+                </a>
+              </li>
+              <li>
+              
+              </li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="container-fluid py-4">
+
+
+      <div class="row">
+        <div class="col-12">
+
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+              <h6 class="text-white text-capitalize ps-3">Log Data</h6>
+            </div>
+          </div><br />
+
+          <div class="card-body px-0 pb-2">
+            <div class="table-responsive p-0">
+
+              <center> <form method="post" id="filter-form">
+                Select Responses :
+                <label class="datas"><input type="checkbox" name="response" value="20x" class="response-checkbox" > 20x</label>
+                <label class="datas"><input type="checkbox" name="response" value="30x" class="response-checkbox" > 30x</label>
+                <label class="datas"><input type="checkbox" name="response" value="40x" class="response-checkbox" > 40x</label>
+                <label class="datas"><input type="checkbox" name="response" value="50x" class="response-checkbox" > 50x</label><br/>
+           
+
+
+                <label for="from_date" class="datas">From:</label>
+                <input type="date" name="from_date" id="from_date" value="{{from_date}}">
+                <label for="to_date" class="datas">To:</label>
+                <input type="date" name="to_date" id="to_date" value="{{to_date}}">
+        
+                <button type="submit" value="filter">Filter</button>
+                <button id="clear-button">Clear</button><br/>
+              
+
+            </div>
+            </center>
+
+              <a class="refresh-icon" href="{{request.path}}">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px" height="30px" id="refresh-icon"
+                  onclick="rotateIcon(); return true;">
+                  <path
+                    d="M15 3C12.031398 3 9.3028202 4.0834384 7.2070312 5.875A1.0001 1.0001 0 1 0 8.5058594 7.3945312C10.25407 5.9000929 12.516602 5 15 5C20.19656 5 24.450989 8.9379267 24.951172 14L22 14L26 20L30 14L26.949219 14C26.437925 7.8516588 21.277839 3 15 3zM4 10L0 16L3.0507812 16C3.562075 22.148341 8.7221607 27 15 27C17.968602 27 20.69718 25.916562 22.792969 24.125A1.0001 1.0001 0 1 0 21.494141 22.605469C19.74593 24.099907 17.483398 25 15 25C9.80344 25 5.5490109 21.062074 5.0488281 16L8 16L4 10z" />
+                </svg>
+              </a>
+              <center>
+              <table>
+                <thead>
+                    <tr>
+                        <th>Sr.No</th>
+                        <th>TIMESTAMP</th>
+                        <th>URI</th>
+                        <th>ID</th>
+                        <th>FILE_PATH</th>
+                        <th>MESSAGE</th>
+                        <th>IP</th>
+                        <th>RESPONSE</th>
+                    </tr> 
+                </thead>
+                <tbody>
+                    {% for row in data %}
+                    <tr>
+                        <td>{{loop.index}}</td>
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[1] }}</td>
+                        <td>{{ row[2] }}</td>
+                        <td>{{ row[3] }}</td>
+                        <td>{{ row[4] }}</td>
+                        <td>{{ row[5] }}</td>
+                        <td>{{ row[6] }}</td>
+             
+                   
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            </center>
+
+            </div>
+          </div>
+
+        </div>   
+      </div>
+    </div>
+
+    </div>
+  </main>
+  
+  </div>
+  <!--   Core JS Files   -->
+  <script src="{{url_for('static',filename='js/popper.min.js')}}"></script>
+  <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+  <script src="{{url_for('static',filename='js/perfect-scrollbar.min.js')}}"></script>
+  <script src="{{url_for('static',filename='js/smooth-scrollbar.min.js')}}"></script>
+  <script src="{{url_for('static',filename='js/jquery.js')}}"></script>
+  <script src="{{url_for('static',filename='js/jsbtn.js')}}"></script>
+  <script src="{{url_for('static',filename='js/exporting.js')}}"></script>
+  <script src="{{url_for('static',filename='js/export_data.js')}}"></script>
+  <script>
+    function rotateIcon() {
+      var icon = document.getElementById("refresh-icon");
+      icon.style.transform = "rotate(360deg)";
+      setTimeout(function () {
+        icon.style.transform = "rotate(0deg)";
+      }, 2000); // Adjust the time as needed (in milliseconds)
+    }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var checkboxes = document.querySelectorAll('.response-checkbox');
+            var from_date_input = document.getElementById('from_date');
+            var to_date_input = document.getElementById('to_date');
+
+            var savedCheckboxes = JSON.parse(localStorage.getItem('selected_checkboxes')) || [];
+
+            // Restore checkbox state
+            checkboxes.forEach(function(checkbox) {
+                if (savedCheckboxes.includes(checkbox.value)) {
+                    checkbox.checked = true;
+                }
+            });
+
+            // Restore date values
+            from_date_input.value = localStorage.getItem('from_date') || '';
+            to_date_input.value = localStorage.getItem('to_date') || '';
+
+            // Save checkbox state and date values to localStorage on change
+
+            checkboxes.forEach(function(checkbox) {
+                checkbox.addEventListener('change', function() {
+                    var selectedCheckboxes = Array.from(checkboxes)
+                        .filter(function(checkbox) {
+                            return checkbox.checked;
+                        })
+                        .map(function(checkbox) {
+                            return checkbox.value;
+                        });
+
+                    localStorage.setItem('selected_checkboxes', JSON.stringify(selectedCheckboxes));
+                });
+            });
+
+            from_date_input.addEventListener('input', function() {
+                localStorage.setItem('from_date', this.value);
+            });
+
+            to_date_input.addEventListener('input', function() {
+                localStorage.setItem('to_date', this.value);
+            });
+
+            var clearButton = document.getElementById('clear-button');
+            clearButton.addEventListener('click', function() {
+                checkboxes.forEach(function(checkbox) {
+                    checkbox.checked = false;
+                });
+                from_date_input.value = '';
+                to_date_input.value = '';
+                localStorage.removeItem('selected_checkboxes');
+                localStorage.removeItem('from_date');
+                localStorage.removeItem('to_date');
+            });
+        });
+       
+
+
+
+
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+
+
+
+  </script>
+
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="{{url_for('static',filename='js/material-dashboard.min.js')}}"></script>
+</body>
+
+</html>

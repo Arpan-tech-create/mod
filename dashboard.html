@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{url_for('static',filename='img/vedas_logo.png')}}">
+  <link rel="icon" type="image/png" href="{{url_for('static',filename='img/vedas_logo.png')}}">
+  <title>
+    VEDAS_DASHBOARD
+  </title>
+
+  <!-- CSS Files -->
+  <link id="pagestyle" href="{{url_for('static',filename='css/material-dashboard.css')}}" rel="stylesheet" />
+  <link id="pagestyle" href="{{url_for('static',filename='css/vedas_title.css')}}" rel="stylesheet" />
+  <link id="pagestyle" href="{{url_for('static',filename='css/slice.css')}}" rel="stylesheet" />
+
+
+</head>
+
+<body class="g-sidenav-show  bg-gray-200">
+  <aside
+    class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
+    id="sidenav-main">
+    <div class="sidenav-header">
+      <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+        aria-hidden="true" id="iconSidenav"></i>
+      <a class="navbar-brand m-0" href="/" target="_blank">
+        <center><img src="{{url_for('static',filename='img/vedas_logo.png')}}" class="navbar-brand-img h-100" alt="main_logo">
+        </center>
+      </a>
+    </div>
+    <hr class="horizontal light mt-0 mb-2">
+    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link text-white active bg-gradient-primary" href="/">
+
+            <span class="nav-link-text ms-1">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white " href="/tables">
+
+            <span class="nav-link-text ms-1">Table</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </aside>
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    <!-- Navbar -->
+    <center>
+      <h6 class="vedas">VEDAS REALTIME THREAT ASSESSMENT</h6>
+    </center>
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+      data-scroll="true">
+      <div class="container-fluid py-1 px-3">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
+          </ol>
+          <h6 class="font-weight-bolder mb-0">Dashboard</h6>
+          <center>
+            <h6 class="font-weight-bolder mb-0">VEDAS REALTIME THREAT ASSESSMENT</h6>
+          </center>
+        </nav>
+        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+
+          <ul class="navbar-nav  justify-content-end">
+
+            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item px-3 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0">
+                <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
+              </a>
+            </li>
+            <li class="nav-item d-flex align-items-center">
+              <a class="refresh-icon" href="{{request.path}}">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px" height="30px" id="refresh-icon"
+                  onclick="rotateIcon(); return true;">
+                  <path
+                    d="M15 3C12.031398 3 9.3028202 4.0834384 7.2070312 5.875A1.0001 1.0001 0 1 0 8.5058594 7.3945312C10.25407 5.9000929 12.516602 5 15 5C20.19656 5 24.450989 8.9379267 24.951172 14L22 14L26 20L30 14L26.949219 14C26.437925 7.8516588 21.277839 3 15 3zM4 10L0 16L3.0507812 16C3.562075 22.148341 8.7221607 27 15 27C17.968602 27 20.69718 25.916562 22.792969 24.125A1.0001 1.0001 0 1 0 21.494141 22.605469C19.74593 24.099907 17.483398 25 15 25C9.80344 25 5.5490109 21.062074 5.0488281 16L8 16L4 10z" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-header p-3 pt-2">
+              <div
+                class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                <i class="material-icons opacity-10">IP COUNTS</i>
+              </div>
+              <div class="text-end pt-1">
+
+                <h4 class="mb-0"><span id="ip_count">{{ip1}}</span></h4>
+              </div>
+            </div>
+            <hr class="dark horizontal my-0">
+
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-header p-3 pt-2">
+              <div
+                class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+                <i class="material-icons opacity-10">RESPONSE COUNTS</i>
+              </div>
+              <div class="text-end pt-1">
+
+                <h4 class="mb-0"><span id="response_count">{{res}}</span></h4>
+              </div>
+            </div>
+            <hr class="dark horizontal my-0">
+
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-header p-3 pt-2">
+              <div
+                class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                <i class="material-icons opacity-10">ID COUNTS</i>
+              </div>
+              <div class="text-end pt-1">
+
+                <h4 class="mb-0"><span id="id_count">{{id}}</span></h4>
+              </div>
+            </div>
+            <hr class="dark horizontal my-0">
+
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6">
+          <div class="card">
+            <div class="card-header p-3 pt-2">
+              <div
+                class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                <i class="material-icons opacity-10">URI COUNTS</i>
+              </div>
+              <div class="text-end pt-1">
+
+                <h4 class="mb-0"><span id="uri_count">{{uri}}</span></h4>
+              </div>
+            </div>
+            <hr class="dark horizontal my-0">
+
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-lg-4 col-md-6 mt-4 mb-4">
+          <div class="card z-index-2 ">
+
+            <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+              <div class="chart" id="chart-container1">
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mt-4 mb-4">
+          <div class="card z-index-2  ">
+
+            <div class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1">
+              <div class="chart" id="newurichart">
+
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+        <div class="col-lg-4 mt-4 mb-3">
+          <div class="card z-index-2 ">
+
+            <div class="bg-gradient-dark shadow-dark border-radius-lg py-3 pe-1">
+              <div class="chart" id="pieChart">
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+        <div class="col-lg-4 mt-4 mb-3">
+          <div class="card z-index-2 ">
+
+            <div class="bg-gradient-dark  border-radius-lg py-3 pe-1">
+              <div class="chart" id="date-chart">
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+        <div class="col-lg-41 mt-4 mb-3">
+          <div class="bar1-con" id="hourly-chart">
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+
+
+
+    </div>
+  </main>
+
+  </div>
+  
+  <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+  <script src="{{url_for('static',filename='js/perfect-scrollbar.min.js')}}"></script>
+  <script src="{{url_for('static',filename='js/smooth-scrollbar.min.js')}}"></script>
+  <script src="{{url_for('static',filename='js/high_chart_lib.js')}}"></script>
+  <script src="{{url_for('static',filename='js/jquery.js')}}"></script>
+  <script src="{{url_for('static',filename='js/exporting.js')}}"></script>
+  <script src="{{url_for('static',filename='js/export_data.js')}}"></script>
+  
+  <script>
+    function rotateIcon() {
+      var icon = document.getElementById("refresh-icon");
+      icon.style.transform = "rotate(360deg)";
+      setTimeout(function () {
+        icon.style.transform = "rotate(0deg)";
+      }, 2000); // Adjust the time as needed (in milliseconds)
+    }
+
+
+
+    var ipData1 = {{ ip_data| tojson}};
+    var data = {{ attack_data | safe }};
+
+    var datauri = {{ data | tojson}};
+    var chart;
+    var chart2;
+    var selectedSlice = null;
+
+    
+
+
+
+
+    //DATECHART MAIN CHART
+    $(document).ready(function () {
+      $.ajax({
+        url: '/data',
+        method: 'GET',
+        success: function (response) {
+          const data = response.data;
+          const dates = [];
+          const counts = [];
+
+          for (let i = 0; i < data.length; i++) {
+            dates.push(data[i][0]);
+            counts.push(data[i][1]);
+          }
+
+          Highcharts.chart('date-chart', {
+            chart: {
+              type: 'column'
+            },
+            title: {
+              text: 'Daily occurrence'
+            },
+            credits: {
+              enabled: false
+            },
+            xAxis: {
+              categories: dates,
+              title: {
+                text: 'Dates'
+              }
+            },
+            yAxis: {
+              min: 0,
+              title: {
+                text: 'Message Counts'
+              }
+            },
+            series: [{
+              name: 'Occurrences',
+              data: counts
+            }],
+            plotOptions: {
+              series: {
+                cursor: 'pointer',
+                dataLabels: {
+                  enabled: true,
+                  format: '{y}',
+                  inside: true,
+                  verticalAlign: 'top',
+                  style: {
+                    fontWeight: 'bold',
+                    fontSize: '20px',
+                  }
+                },
+                colorByPoint: true,
+                point: {
+                  events: {
+                    click: function () {
+                      const date = this.category;
+                      generateHourlyChart(date);
+                      generate_dist_ip(date, function (distinctIP) {
+                        document.getElementById('ip_count').innerText = distinctIP;
+                      });
+                      generate_dist_res(date, function (distinctres) {
+                        document.getElementById('response_count').innerText = distinctres;
+
+                      });
+                      generate_dist_id(date, function (distinctid) {
+                        document.getElementById('id_count').innerText = distinctid;
+                      });
+                      generate_dist_uri(date, function (distincturi) {
+                        document.getElementById('uri_count').innerText = distincturi;
+                      });
+                    }
+                  }
+                }
+              }
+            }
+          });
+
+
+
+
+          function generate_dist_ip(date, callback) {
+            fetch(`/distinct_ip_count_for_date?date=${date}`)
+              .then(response => response.json())
+              .then(data => {
+                const distinctIP = data.ip1;
+                callback(distinctIP);
+              })
+              .catch(error => {
+                console.log('Error occurred while fetching distinct IP count', error);
+              });
+          }
+          function generate_dist_res(date, callback) {
+            fetch(`/distinct_response_count_for_date?date=${date}`)
+              .then(response => response.json())
+              .then(data => {
+                const distinctres = data.res;
+                callback(distinctres);
+              })
+              .catch(error => {
+                console.log('Error occurred while fetching distinct RESPONSE count', error);
+              });
+          }
+
+          function generate_dist_id(date, callback) {
+            fetch(`/distinct_id_count_for_date?date=${date}`)
+              .then(response => response.json())
+              .then(data => {
+                const distinctid = data.id;
+                callback(distinctid);
+              })
+              .catch(error => {
+                console.log('Error occurred while fetching distinct ID count', error);
+              });
+          }
+
+          function generate_dist_uri(date, callback) {
+            fetch(`/distinct_uri_count_for_date?date=${date}`)
+              .then(response => response.json())
+              .then(data => {
+                const distincturi = data.uri;
+                callback(distincturi);
+              })
+              .catch(error => {
+                console.log('Error occurred while fetching distinct URI count', error);
+              });
+          }
+
+
+          //HOURLY_MAIN
+          function generateHourlyChart(date) {
+            $.ajax({
+              url: '/hourly_data',
+              method: 'GET',
+              data: { date: date },
+              success: function (response) {
+                const data = response.data;
+                const counts = Array.from({ length: 24 }, () => 0);
+
+                // Extract counts for each hour from the data
+                for (let i = 0; i < data.length; i++) {
+                  const hour = parseInt(data[i][0]);
+                  const count = data[i][1];
+                  counts[hour] = count;
+                }
+                const chartTitle = 'Hourly Occurrences - ' + date;
+                Highcharts.chart('hourly-chart', {
+                  chart: {
+                    type: 'column'
+                  },
+                  title: {
+                    text: chartTitle
+                  },
+                  credits: {
+                    enabled: false
+                  },
+
+                  xAxis: {
+                    categories: Array.from({ length: 24 }, (_, i) => i),
+                    title: {
+                      text: 'Hours'
+                    }
+                  },
+                  yAxis: {
+                    min: 0,
+                    title: {
+                      text: 'Message_Counts'
+                    }
+                  },
+
+
+                  series: [{
+                    name: 'Occurrences',
+                    data: counts,
+                    dataLabels: {
+                      enabled: true,
+                      format: '{y}',
+                      inside: false,
+                      align: 'center',
+                      style: {
+                        fontSize: '12px',
+                        fontWeight: 'bold'
+                      }
+                    }
+
+                  }],
+                  plotOptions: {
+                    column: {
+                      colorByPoint: true, // Enable color by point
+                    },
+                  }
+
+                });
+              },
+
+            });
+          }
+        },
+      });
+
+    });
+    //top_attacks_MAIN
+    $(document).ready(function () {
+      // Retrieve data from Flask route
+
+
+      // Create the pie chart using Highcharts.js
+      Highcharts.chart('pieChart', {
+        chart: {
+          type: 'pie',
+          events: {
+            load: function () {
+              chart2 = this;
+            }
+          }
+
+        },
+        title: {
+          text: 'TOP ATTACKs'
+        },
+        credits: {
+          enabled: false
+        },
+        plotOptions: {
+          pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            showInLegend: true,
+            dataLabels: {
+              enabled: true,
+              format: '{point.percentage:.2f}%',
+
+              style: {
+                fontWeight: 'bold',
+                fontSize: '12px',
+              },
+
+            },
+            point: {
+              events: {
+                click: function () {
+
+
+
+                  if (selectedSlice === this) {
+                    window.location.href = '/';
+                    //resetChart();
+
+                  } else {
+                    selectedSlice = this;
+                    updateChart();
+                  }
+
+                  var selectedMessage = this.name;
+
+                  updateDistinctIp(selectedMessage);
+                  updateDistinctId(selectedMessage);
+                  updateDistincturi(selectedMessage);
+
+                  var selectedMessage1 = this.name;
+                  updateIPData(selectedMessage1);
+
+
+                  var selectedMessage12 = this.name;
+                  updateURIData1(selectedMessage12);
+
+                  var selectedMessage13 = this.name;
+                  updateDatedata1(selectedMessage13);
+                }
+              },
+            }
+          }
+        },
+        legend: {
+          enabled: true,
+          align: 'center',
+          verticalAlign: 'bottom',
+          layout: 'horizontal',
+          itemMarginBottom: 6,
+          labelFormatter: function () {
+            
+            var maxChars = 20;
+            var legendText = this.name;
+
+            if (legendText.length > maxChars) {
+              legendText = legendText.substring(0, maxChars) + '...';
+            }
+
+            return legendText;
+          }
+        },
+   
+
+        series: [{
+          name: '403_Response_Message',
+          colorByPoint: true,
+          data: data
+        }],
+
+
+      });
+
+      function updateDatedata1(selectedMessage13) {
+        $.ajax({
+          url: '/filtered_data_by_attack',
+          method: 'GET',
+          data: { 'select_attack': selectedMessage13 },
+          success: function (response) {
+            const data = response.data;
+            const dates = data.map(row => row[0]);
+            const counts = data.map(row => row[1]);
+
+            Highcharts.chart('date-chart', {
+              chart: {
+                type: 'column'
+              },
+              title: {
+                text: 'Daily Occurrence for ' + (selectedMessage13 !== '' ? selectedMessage13 : 'All ')
+              },
+              credits: {
+                enabled: false
+              },
+              xAxis: {
+                categories: dates,
+                title: {
+                  text: 'Dates'
+                }
+              },
+              yAxis: {
+                min: 0,
+                title: {
+                  text: 'Message Counts'
+                }
+              },
+              series: [{
+                name: 'Occurrences',
+                data: counts
+              }],
+
+              plotOptions: {
+
+                series: {
+                  cursor: 'pointer',
+                  colorByPoint: true,
+                  point: {
+                    events: {
+                      click: function () {
+
+                        const MESSAGE = this.category;
+
+                        date = this.category;
+                        console.log(date)
+                        generatehourlyforattack(selectedMessage13, date);
+
+                      }
+                    }
+                  },
+                  dataLabels: {
+                    enabled: true,
+                    format: '{y}',
+                    inside: true,
+                    verticalAlign: 'top',
+                    style: {
+                      fontWeight: 'bold',
+                      fontSize: '20px'
+                    }
+                  }
+                },
+
+              }
+            });
+          },
+
+          error: function () {
+            console.log('Error occurred while fetching filtered data');
+          }
+        });
+
+      }
+
+      function generatehourlyforattack(MESSAGE, date) {
+        $.ajax({
+          url: '/hourly_data?date=' + date + '&MESSAGE=' + MESSAGE + '&RESPONSE=' + 403,
+          method: 'GET',
+
+          success: function (response) {
+            const data = response.data;
+            const counts = Array.from({ length: 24 }, () => 0);
+
+            // Extract counts for each hour from the data
+            for (let i = 0; i < data.length; i++) {
+              const hour = parseInt(data[i][0]);
+              const count = data[i][1];
+              counts[hour] = count;
+            }
+            const chartTitle = 'Hourly Occurrences - ' + date;
+            Highcharts.chart('hourly-chart', {
+              chart: {
+                type: 'column'
+              },
+              title: {
+                text: chartTitle
+              },
+              credits: {
+                enabled: false
+              },
+
+              xAxis: {
+                categories: Array.from({ length: 24 }, (_, i) => i),
+                title: {
+                  text: 'Hours'
+                }
+              },
+              yAxis: {
+                min: 0,
+                title: {
+                  text: 'Message_Counts'
+                }
+              },
+
+
+              series: [{
+                name: 'Occurrences',
+                data: counts,
+                dataLabels: {
+                  enabled: true,
+                  format: '{y}',
+                  inside: false,
+                  align: 'center',
+                  style: {
+                    fontSize: '12px',
+                    fontWeight: 'bold'
+                  }
+                }
+
+              }],
+              plotOptions: {
+                column: {
+                  colorByPoint: true,
+                },
+              }
+            });
+          },
+        });
+      }
+      
+      function updateURIData1(selectedMessage12) {
+        $.ajax({
+
+          url: '/update_uri_data_by_attack_pie',
+          data: { 'message': selectedMessage12 },
+          method: 'GET',
+          success: function (response) {
+            var chart = Highcharts.chart('newurichart', {
+              chart: {
+                type: 'pie',
+
+              },
+
+              title: {
+                text: 'TOP URIs'
+              },
+              credits: {
+                enabled: false
+
+              },
+              plotOptions: {
+                pie: {
+                  allowPointSelect: true,
+                  cursor: 'pointer',
+                  showInLegend: true,
+                  dataLabels: {
+                    enabled: true,
+                    format: '{point.percentage:.2f}%',
+
+                    style: {
+                      fontWeight: 'bold',
+                      fontSize: '12px',
+                    },
+
+                  },
+                }
+              },
+
+              series: [{
+                name: 'Uris',
+                data: response.data
+              }]
+            });
+
+          }
+        })
+      }
+
+      function updateIPData(selectedMessage1) {
+        $.ajax({
+          url: '/update_ip_data',
+          data: { 'message': selectedMessage1 },
+          method: 'GET',
+          success: function (response) {
+            var ipchart = Highcharts.chart('chart-container1', {
+              chart: {
+                type: 'pie',
+
+              },
+              title: {
+                text: 'TOP IPs'
+              },
+              credits: {
+                enabled: false
+              },
+              plotOptions: {
+                pie: {
+                  allowPointSelect: true,
+                  cursor: 'pointer',
+                  showInLegend: true,
+                  dataLabels: {
+                    enabled: true,
+                    format: '{point.percentage:.2f}%',
+                    style: {
+                      fontWeight: 'bold',
+                      fontSize: '15px'
+                    }
+                  },
+                  states: {
+                    select: {
+                      brightness: 0,
+                      enabled: true,
+                      halo: {
+                        size: 0
+                      }
+                    }
+                  },
+
+                }
+              },
+              series: [{
+                name: 'IP',
+                data: response.data,
+              }],
+            });
+          }
+        });
+      }
+
+
+      function updateDistinctIp(selectedMessage) {
+        $.ajax({
+          url: '/get_dist_ip_for_403_top_attacks',
+          type: 'GET',
+          data: { message: selectedMessage },
+          success: function (data) {
+            var newDistinctIp = parseInt(data);
+            $('#ip_count').text(newDistinctIp);
+          },
+          error: function (xhr, status, error) {
+            console.log(error);
+          }
+        });
+      }
+      function updateDistinctId(selectedMessage) {
+        $.ajax({
+          url: '/get_dist_id_for_403_top_attacks',
+          type: 'GET',
+          data: { message: selectedMessage },
+          success: function (data) {
+            var newDistinctId = parseInt(data);
+            $('#id_count').text(newDistinctId);
+          },
+          error: function (xhr, status, error) {
+            console.log(error);
+          }
+        });
+      }
+      function updateDistincturi(selectedMessage) {
+        $.ajax({
+          url: '/get_dist_uri_for_403_top_attacks',
+          type: 'GET',
+          data: { message: selectedMessage },
+          success: function (data) {
+            var newDistincturi = parseInt(data);
+            $('#uri_count').text(newDistincturi);
+          },
+          error: function (xhr, status, error) {
+            console.log(error);
+          }
+        });
+      }
+      function updateChart() {
+        chart2.series[0].points.forEach(function (point) {
+          if (point === selectedSlice) {
+            point.graphic.element.classList.remove('blur-slice');
+            point.dataLabel.element.classList.remove('blur-slice');
+          } else {
+            point.graphic.element.classList.add('blur-slice');
+            point.dataLabel.element.classList.add('blur-slice');
+          }
+        });
+
+        var title = "TOP Attacks";
+        if (selectedSlice) {
+          title = "Filter By Attack:- " + selectedSlice.name;
+        }
+        chart2.setTitle({ text: title });
+      }
+
+      function resetChart() {
+        chart2.series[0].points.forEach(function (point) {
+          point.graphic.element.classList.remove('blur-slice');
+          point.dataLabel.element.classList.remove('blur-slice');
+        });
+
+        selectedSlice = null;
+        chart2.setTitle({ text: 'TOP Attackss' });
+      }
+
+
+
+    });
+
+
+
+    //TOP_ips_main
+    $(document).ready(function () {
+      var ipchart = Highcharts.chart('chart-container1', {
+        chart: {
+          type: 'pie',
+          events: {
+            load: function () {
+              chart = this;
+            }
+          }
+        },
+        title: {
+          text: 'TOP IPs'
+        },
+        credits: {
+          enabled: false
+        },
+        plotOptions: {
+          pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            showInLegend: true,
+            dataLabels: {
+              enabled: true,
+              format: '{point.percentage:.2f}%',
+              style: {
+                fontWeight: 'bold',
+                fontSize: '15px'
+              }
+            },
+
+            point: {
+              events: {
+                click: function (event) {
+                  if (selectedSlice === this) {
+                    window.location.href = '/';
+                    //resetChart();
+
+                  } else {
+                    selectedSlice = this;
+                    updateChart();
+                  }
+
+                  var selectedIp1 = this.name;
+                  var ipuri = this.name;
+                  updateuridata(ipuri);
+                  updateDateChart(selectedIp1);
+                  var ip12 = event.point.name;
+                  updateAttackData(ip12);
+
+
+
+                  var ip = this.name;
+                  fetchDistinctCounts('uri', ip);
+                  fetchDistinctCounts('response', ip);
+                  fetchDistinctCounts('id', ip);
+                },
+              }
+            }
+          }
+        },
+
+        series: [{
+          name: 'IP',
+          data: ipData1,
+          showInLegend: true
+        }],
+      });
+
+      function fetchDistinctCounts(countType, ip) {
+        fetch('/update_response_id_uri_count_by_ip_pie?type=' + countType + '&ip=' + encodeURIComponent(ip))
+          .then(response => response.text())
+          .then(count => {
+            if (countType === 'uri') {
+              document.getElementById('uri_count').innerText = count;
+            } else if (countType === 'response') {
+              document.getElementById('response_count').innerText = count;
+            } else if (countType === 'id') {
+              document.getElementById('id_count').innerText = count;
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+      }
+
+
+      function updateDateChart1(selecteduri2) {
+        $.ajax({
+          url: '/filtered_data_by_uri',
+          method: 'GET',
+          data: { 'select_uri': selecteduri2 },
+          success: function (response) {
+            const data = response.data;
+            const dates = data.map(row => row[0]);
+            const counts = data.map(row => row[1]);
+
+            Highcharts.chart('date-chart', {
+              chart: {
+                type: 'column'
+              },
+              title: {
+                text: 'Daily Occurrence for ' + (selecteduri2 !== '' ? selecteduri2 : 'All URIs')
+              },
+              credits: {
+                enabled: false
+              },
+              xAxis: {
+                categories: dates,
+                title: {
+                  text: 'Dates'
+                }
+              },
+              yAxis: {
+                min: 0,
+                title: {
+                  text: 'Message Counts'
+                }
+              },
+              series: [{
+                name: 'Occurrences',
+                data: counts
+              }],
+
+              plotOptions: {
+                series: {
+                  cursor: 'pointer',
+                  colorByPoint: true,
+                  point: {
+                    events: {
+                      click: function () {
+
+                        const URI = this.category;
+                        date = this.category;
+                        console.log(date)
+                        generatehourlyforuri(selecteduri2, date);
+
+                      }
+                    }
+                  },
+                  dataLabels: {
+                    enabled: true,
+                    format: '{y}',
+                    inside: true,
+                    verticalAlign: 'top',
+                    style: {
+                      fontWeight: 'bold',
+                      fontSize: '20px'
+                    }
+                  }
+                },
+
+              }
+            });
+          },
+          error: function () {
+            console.log('Error occurred while fetching filtered data');
+          }
+        });
+      }
+
+
+
+
+      function updateChart() {
+        chart.series[0].points.forEach(function (point) {
+          if (point === selectedSlice) {
+            point.graphic.element.classList.remove('blur-slice');
+            point.dataLabel.element.classList.remove('blur-slice');
+          } else {
+            point.graphic.element.classList.add('blur-slice');
+            point.dataLabel.element.classList.add('blur-slice');
+          }
+        });
+
+        var title = "TOP IPs";
+        if (selectedSlice) {
+          title = "Filter By IP:- " + selectedSlice.name;
+        }
+        chart.setTitle({ text: title });
+      }
+
+      function resetChart() {
+        chart.series[0].points.forEach(function (point) {
+          point.graphic.element.classList.remove('blur-slice');
+          point.dataLabel.element.classList.remove('blur-slice');
+        });
+
+        selectedSlice = null;
+        chart.setTitle({ text: 'TOP IPs' });
+      }
+
+
+
+      function updateuridata(ipuri) {
+        $.ajax({
+          type: 'GET',
+          url: '/get_uri_chart_by_ip_pie',
+
+          data: {
+            ip: ipuri
+          },
+          success: function (response) {
+
+
+            var chart = Highcharts.chart('newurichart', {
+              chart: {
+                type: 'pie'
+              },
+
+              title: {
+                text: 'Top URIs'
+              },
+              credits: {
+                enabled: false
+
+              },
+              plotOptions: {
+                pie: {
+
+
+                  allowPointSelect: true,
+                  cursor: 'pointer',
+                  showInLegend: true,
+                  dataLabels: {
+                    enabled: true,
+                    format: '{point.percentage:.2f}%',
+                    style: {
+                      fontWeight: 'bold',
+                      fontSize: '12px',
+                    },
+                  },
+                }
+              },
+              series: [{
+                name: 'Occurrence',
+                colorByPoint: true,
+                data: response.data
+              }]
+            });
+          }
+        });
+      }
+
+      function updateAttackData(ip12) {
+        $.ajax({
+          url: '/get_attack_data/' + ip12,
+          type: 'GET',
+          dataType: 'json',
+          success: function (data) {
+            var chart = Highcharts.chart('pieChart', {
+              chart: {
+                type: 'pie',
+
+              },
+              title: {
+                text: 'Top Attacks'
+              },
+              credits: {
+                enabled: false
+              },
+              plotOptions: {
+                pie: {
+                  allowPointSelect: true,
+                  cursor: 'pointer',
+                  showInLegend: true,
+                  dataLabels: {
+                    enabled: true,
+                    format: '{point.percentage:.2f}%',
+                    style: {
+                      fontWeight: 'bold',
+                      fontSize: '12px',
+                    }
+                  }
+                }
+              },
+              legend: {
+                enabled: true,
+                align: 'center',
+                verticalAlign: 'bottom',
+                layout: 'horizontal',
+                itemMarginBottom: 6,
+                labelFormatter: function () {
+                  var maxChars = 20;
+                  var legendText = this.name;
+
+                  if (legendText.length > maxChars) {
+                    legendText = legendText.substring(0, maxChars) + '...';
+                  }
+
+                  return legendText;
+                }
+              },
+
+              series: [{
+                name: 'Occurrences',
+                colorByPoint: true,
+                data: data
+              }]
+            });
+          }
+        });
+      }
+
+      function updateDateChart(selectedIp1) {
+        $.ajax({
+          url: '/filtered_data',
+          method: 'GET',
+          data: { 'selected_ip': selectedIp1 },
+          success: function (response) {
+            const data = response.data;
+            const dates = data.map(row => row[0]);
+            const counts = data.map(row => row[1]);
+
+            Highcharts.chart('date-chart', {
+              chart: {
+                type: 'column'
+              },
+              title: {
+                text: 'Daily Occurrence for ' + (selectedIp1 !== '' ? selectedIp1 : 'All IPs')
+              },
+              credits: {
+                enabled: false
+              },
+              xAxis: {
+                categories: dates,
+                title: {
+                  text: 'Dates'
+                }
+              },
+              yAxis: {
+                min: 0,
+                title: {
+                  text: 'Message Counts'
+                }
+              },
+              series: [{
+                name: 'Occurrences',
+                data: counts
+              }],
+
+              plotOptions: {
+                series: {
+                  cursor: 'pointer',
+                  colorByPoint: true,
+                  point: {
+                    events: {
+                      click: function () {
+
+                        const IP = this.category;
+                        date = this.category;
+                        console.log(date)
+                        generatehourlyforip(selectedIp1, date);
+
+                      }
+                    }
+                  },
+                  dataLabels: {
+                    enabled: true,
+                    format: '{y}',
+                    inside: true,
+                    verticalAlign: 'top',
+                    style: {
+                      fontWeight: 'bold',
+                      fontSize: '20px'
+                    }
+                  }
+                }, 
+
+              }
+            });
+          },
+          error: function () {
+            console.log('Error occurred while fetching filtered data');
+          }
+        });
+      }
+
+
+      function generatehourlyforip(IP, date) {
+        $.ajax({
+          url: '/hourly_data?date=' + date + '&IP=' + IP,
+          method: 'GET',
+          // data: { URI: URI },
+          success: function (response) {
+            const data = response.data;
+            const counts = Array.from({ length: 24 }, () => 0);
+
+            // Extract counts for each hour from the data
+            for (let i = 0; i < data.length; i++) {
+              const hour = parseInt(data[i][0]);
+              const count = data[i][1];
+              counts[hour] = count;
+            }
+            const chartTitle = 'Hourly Occurrences - ' + date;
+            Highcharts.chart('hourly-chart', {
+              chart: {
+                type: 'column'
+              },
+              title: {
+                text: chartTitle
+              },
+              credits: {
+                enabled: false
+              },
+
+              xAxis: {
+                categories: Array.from({ length: 24 }, (_, i) => i),
+                title: {
+                  text: 'Hours'
+                }
+              },
+              yAxis: {
+                min: 0,
+                title: {
+                  text: 'Message_Counts'
+                }
+              },
+              series: [{
+                name: 'Occurrences',
+                data: counts,
+                dataLabels: {
+                  enabled: true,
+                  format: '{y}',
+                  inside: false,
+                  align: 'center',
+                  style: {
+                    fontSize: '12px',
+                    fontWeight: 'bold'
+                  }
+                }
+
+              }],
+              plotOptions: {
+                column: {
+                  colorByPoint: true, // Enable color by point
+                },
+              }
+
+            });
+          },
+        });
+      }
+      function updateDistinctResponseCount(selectedIP) {
+        $.ajax({
+          url: '/get_response_count',
+          method: 'GET',
+          data: { ip: selectedIP },
+          success: function (data) {
+            var newRes = data.response_count;
+            $('#response_count').text(newRes);
+
+          },
+          error: function (xhr, status, error) {
+            console.error('Error:', error);
+          }
+        });
+      }
+
+      $('#response_count').text(newRes);
+
+      function updateDistinctIDCount(selectedIP) {
+        $.ajax({
+          url: '/get_id_count',
+          method: 'GET',
+          data: { id: selectedIP },
+          success: function (data) {
+            var newids = data.id_count;
+            $('#id_count').text(newids);
+
+          },
+          error: function (xhr, status, error) {
+            console.error('Error:', error);
+          }
+        });
+      }
+
+      $('#id_count').text(newids);
+
+
+      function updateDistinctURICount(selectedIP) {
+        $.ajax({
+          url: '/get_uri_count',
+          method: 'GET',
+          data: { uri: selectedIP },
+          success: function (data) {
+            var newuri = data.uri_count;
+            $('#uri_count').text(newuri);
+
+          },
+          error: function (xhr, status, error) {
+            console.error('Error:', error);
+          }
+        });
+      }
+
+      $('#uri_count').text(newuri);
+    });
+
+
+    //URI_CHART_MAIN
+    $(document).ready(function () {
+      var chart = Highcharts.chart('newurichart', {
+        chart: {
+          type: 'pie',
+          events: {
+            load: function () {
+              chart = this;
+            }
+          }
+        },
+
+        title: {
+          text: 'TOP URIs'
+        },
+        credits: {
+          enabled: false
+
+        },
+        plotOptions: {
+          pie: {
+            point: {
+              events: {
+                click: function (event) {
+                  if (selectedSlice === this) {
+                    // resetChart();
+                    window.location.href = '/';
+                  } else {
+                    selectedSlice = this;
+                    updateChart();
+                  }
+                  var myuri = this.name;
+                  updateippie(myuri);
+
+                  var uri13 = this.name;
+                  updateAttackuri(uri13);
+
+                  var selecteduri2 = this.name;
+                  updateDateChart1(selecteduri2);
+
+                  var uri = this.name;
+                  fetchDistinctCount('ip', uri);
+                  fetchDistinctCount('response', uri);
+                  fetchDistinctCount('id', uri);
+                },
+
+              }
+            },
+
+            allowPointSelect: true,
+            cursor: 'pointer',
+            showInLegend: true,
+            dataLabels: {
+              enabled: true,
+              format: '{point.percentage:.2f}%',
+
+              style: {
+                fontWeight: 'bold',
+                fontSize: '12px',
+              },
+
+            },
+
+
+          }
+        },
+
+        series: [{
+          name: 'Uris',
+          data: datauri,
+
+
+        }]
+      });
+
+
+
+      function fetchDistinctCount(countType, uri) {
+        fetch('/update_response_ip_id_count_by_uri?type=' + countType + '&uri=' + encodeURIComponent(uri))
+          .then(response => response.text())
+          .then(count => {
+            if (countType === 'ip') {
+              document.getElementById('ip_count').innerText = count;
+            } else if (countType === 'response') {
+              document.getElementById('response_count').innerText = count;
+            } else if (countType === 'id') {
+              document.getElementById('id_count').innerText = count;
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+      }
+
+      function updateDateChart1(selecteduri2) {
+        $.ajax({
+          url: '/filtered_data_by_uri',
+          method: 'GET',
+          data: { 'select_uri': selecteduri2 },
+          success: function (response) {
+            const data = response.data;
+            const dates = data.map(row => row[0]);
+            const counts = data.map(row => row[1]);
+
+            Highcharts.chart('date-chart', {
+              chart: {
+                type: 'column'
+              },
+              title: {
+                text: 'Daily Occurrence for ' + (selecteduri2 !== '' ? selecteduri2 : 'All URIs')
+              },
+              credits: {
+                enabled: false
+              },
+              xAxis: {
+                categories: dates,
+                title: {
+                  text: 'Dates'
+                }
+              },
+              yAxis: {
+                min: 0,
+                title: {
+                  text: 'Message Counts'
+                }
+              },
+              series: [{
+                name: 'Occurrences',
+                data: counts
+              }],
+
+              plotOptions: {
+                series: {
+                  cursor: 'pointer',
+                  colorByPoint: true,
+                  point: {
+                    events: {
+                      click: function () {
+
+                        const URI = this.category;
+                        date = this.category;
+                        console.log(date)
+                        generatehourlyforuri(selecteduri2, date);
+
+                      }
+                    }
+                  },
+                  dataLabels: {
+                    enabled: true,
+                    format: '{y}',
+                    inside: true,
+                    verticalAlign: 'top',
+                    style: {
+                      fontWeight: 'bold',
+                      fontSize: '20px'
+                    }
+                  }
+                },
+
+              }
+            });
+          },
+          error: function () {
+            console.log('Error occurred while fetching filtered data');
+          }
+        });
+      }
+
+
+      function generatehourlyforuri(URI, date) {
+        $.ajax({
+          url: '/hourly_data?date=' + date + '&URI=' + URI,
+          method: 'GET',
+          // data: { URI: URI },
+          success: function (response) {
+            const data = response.data;
+            const counts = Array.from({ length: 24 }, () => 0);
+
+            // Extract counts for each hour from the data
+            for (let i = 0; i < data.length; i++) {
+              const hour = parseInt(data[i][0]);
+              const count = data[i][1];
+              counts[hour] = count;
+            }
+            const chartTitle = 'Hourly Occurrences - ' + date;
+            Highcharts.chart('hourly-chart', {
+              chart: {
+                type: 'column'
+              },
+              title: {
+                text: chartTitle
+              },
+              credits: {
+                enabled: false
+              },
+
+              xAxis: {
+                categories: Array.from({ length: 24 }, (_, i) => i),
+                title: {
+                  text: 'Hours'
+                }
+              },
+              yAxis: {
+                min: 0,
+                title: {
+                  text: 'Message_Counts'
+                }
+              },
+
+
+              series: [{
+                name: 'Occurrences',
+                data: counts,
+                dataLabels: {
+                  enabled: true,
+                  format: '{y}',
+                  inside: false,
+                  align: 'center',
+                  style: {
+                    fontSize: '12px',
+                    fontWeight: 'bold'
+                  }
+                }
+
+              }],
+              plotOptions: {
+                column: {
+                  colorByPoint: true, // Enable color by point
+                },
+              }
+            });
+          },
+        });
+      }
+      function updateAttackuri(uri13) {
+        $.ajax({
+          url: '/get_attack_pie_by_uri_chart',
+          type: 'GET',
+
+          data: {
+            uri13: uri13
+          },
+
+
+          success: function (response) {
+            var chart = Highcharts.chart('pieChart', {
+              chart: {
+                type: 'pie',
+
+              },
+              title: {
+                text: 'TOP ATTACKs'
+              },
+              credits: {
+                enabled: false
+              },
+              plotOptions: {
+                pie: {
+                  allowPointSelect: true,
+                  cursor: 'pointer',
+                  showInLegend: true,
+                  dataLabels: {
+                    enabled: true,
+                    format: '{point.percentage:.2f}%',
+                    style: {
+                      fontWeight: 'bold',
+                      fontSize: '12px',
+                    }
+                  }
+                }
+              },
+              legend: {
+                enabled: true,
+                align: 'center',
+                verticalAlign: 'bottom',
+                layout: 'horizontal',
+                itemMarginBottom: 6,
+                labelFormatter: function () {
+                  // Modify the legend text here
+                  var maxChars = 20;
+                  var legendText = this.name;
+
+                  if (legendText.length > maxChars) {
+                    legendText = legendText.substring(0, maxChars) + '...';
+                  }
+
+                  return legendText;
+                }
+              },
+
+              series: [{
+                name: 'Occurrences',
+                colorByPoint: true,
+                data: response.data
+              }]
+            });
+          }
+        });
+      }
+
+
+      function updateChart() {
+        chart.series[0].points.forEach(function (point) {
+          if (point === selectedSlice) {
+            point.graphic.element.classList.remove('blur-slice');
+            point.dataLabel.element.classList.remove('blur-slice');
+          } else {
+            point.graphic.element.classList.add('blur-slice');
+            point.dataLabel.element.classList.add('blur-slice');
+          }
+        });
+
+        var title = "Top URIs";
+        if (selectedSlice) {
+          title = "filter by URI :- " + selectedSlice.name;
+        }
+        chart.setTitle({ text: title });
+      }
+      function resetChart() {
+        chart.series[0].points.forEach(function (point) {
+          point.graphic.element.classList.remove('blur-slice');
+          point.dataLabel.element.classList.remove('blur-slice');
+        });
+
+        selectedSlice = null;
+        chart.setTitle({ text: 'Top URIs' });
+      }
+
+
+      function updateippie(myuri) {
+        $.ajax({
+          type: 'GET',
+          url: '/get_ip_chart_by_uri_pie',
+
+          data: {
+            myuri: myuri
+          },
+
+          success: function (response) {
+
+
+            var chart = Highcharts.chart('chart-container1', {
+              chart: {
+                type: 'pie'
+              },
+
+              title: {
+                text: 'Top IPs'
+              },
+              credits: {
+                enabled: false
+
+              },
+              plotOptions: {
+                pie: {
+
+
+                  allowPointSelect: true,
+                  cursor: 'pointer',
+                  showInLegend: true,
+                  dataLabels: {
+                    enabled: true,
+                    format: '{point.percentage:.2f}%',
+
+                    style: {
+                      fontWeight: 'bold',
+                      fontSize: '12px',
+                    },
+
+                  },
+
+
+                }
+              },
+
+              series: [{
+                name: 'Occurrence',
+                colorByPoint: true,
+                data: response.data
+              }]
+            });
+
+
+          }
+        });
+      }
+    });
+  </script>
+  <script src="{{url_for('static',filename='js/material-dashboard.min.js')}}"></script>
+
+</body>
+
+</html>
